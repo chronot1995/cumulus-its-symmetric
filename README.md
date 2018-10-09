@@ -179,7 +179,7 @@ Route Distinguisher: 10.222.222.2:3
 Displayed 8 prefixes (8 paths) (of requested type)
 ```
 
-In the below, server01 is sending pings to server02:
+In the below, server01 is tracing to server02, which is on the same leaf, but in a different VRF:
 
 ```
 cumulus@server01:~$ traceroute 192.168.22.111
@@ -193,11 +193,15 @@ traceroute to 192.168.22.111 (192.168.22.111), 30 hops max, 60 byte packets
 ```
 The above traffic goes through 10.111.111.1, which is fw01. This highlights VRF tenant separation.
 
+The next output is an intra-VRF traceroute between server01 and server03. This traceroute takes the VXLAN tunnel directly from server01 to server03:
+
 ```
 cumulus@server01:~$ traceroute 192.168.11.222
 traceroute to 192.168.11.222 (192.168.11.222), 30 hops max, 60 byte packets
  1  192.168.11.222 (192.168.11.222)  3.357 ms  3.317 ms  3.274 ms
 ```
+
+This is an inter-VRF communication from server01 in the RED VRF on leaf01 to server04 in the BLUE VRF  on leaf02:
 
 ```
 cumulus@server01:~$ traceroute 192.168.22.222
