@@ -19,7 +19,3 @@
     dest: /etc/frr/frr.conf
     backup: yes
   notify: reload frr
-
-- name: Pause for route convergence
-  pause:
-    seconds: 30

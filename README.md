@@ -187,6 +187,8 @@ traceroute to 192.168.22.222 (192.168.22.222), 30 hops max, 60 byte packets
 ```
 The above traffic goes through 10.111.111.1, which is fw01. This highlights VRF tenant separation.
 
+
+
 ### Errata
 
 1. To shutdown the demo, run the following command from the vx-simulation directory:
