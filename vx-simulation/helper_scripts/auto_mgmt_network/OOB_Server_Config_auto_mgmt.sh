@@ -2,7 +2,7 @@
 # Created by Topology-Converter v4.6.8
 #    Template Revision: v4.6.8
 #    https://github.com/cumulusnetworks/topology_converter
-#    using topology data from: yh-demo2.dot
+#    using topology data from: cumulus-its-symmetric.dot
 
 echo "################################################"
 echo "  Running Automatic Management Server Setup..."
@@ -15,8 +15,8 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/yh-demo2"
-REPONAME="yh-demo2"
+REPOSITORY="https://github.com/CumulusNetworks/cumulus-its-symmetric"
+REPONAME="cumulus-its-symmetric"
 
 #Install Automation Tools
 puppet=0
@@ -50,7 +50,6 @@ install_ansible(){
 	sudo pip install setuptools --upgrade
 	sudo pip install ansible==$ansible_version --upgrade
 }
-
 
 ## MOTD
 echo " ### Overwriting MOTD ###"

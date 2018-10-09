@@ -1,4 +1,4 @@
-## yh-demo2
+## cumulus-its-symmetric
 
 ### Summary:
 
@@ -6,7 +6,7 @@ This is an Ansible demo which configures client isolation using VRF and VXLAN to
 
 ### Network Diagram:
 
-![Network Diagram](https://github.com/chronot1995/yh-demo2/blob/master/documentation/yh-demo2.png)
+![Network Diagram](https://github.com/chronot1995/cumulus-its-symmetric/blob/master/documentation/cumulus-its-symmetric.png)
 
 ### Initializing the demo environment:
 
@@ -22,11 +22,11 @@ First, make sure that the following is currently running on your machine:
 
 3. Copy the Git repo to your local machine:
 
-    ```git clone https://github.com/chronot1995/yh-demo2```
+    ```git clone https://github.com/chronot1995/cumulus-its-symmetric```
 
 4. Change directories to the following
 
-    ```yh-demo2```
+    ```cumulus-its-symmetric```
 
 6. Run the following:
 
@@ -41,11 +41,11 @@ First, make sure that the following is currently running on your machine:
 
 2. Copy the Git repo unto the oob-mgmt-server:
 
-    ```git clone https://github.com/chronot1995/yh-demo2```
+    ```git clone https://github.com/chronot1995/cumulus-its-symmetric```
 
 3. Change directories to the following
 
-    ```yh-demo2/automation```
+    ```cumulus-its-symmetric/automation```
 
 4. Run the following:
 
@@ -199,7 +199,7 @@ The above traffic goes through 10.111.111.1, which is fw01. This highlights VRF 
 
 3. The following command was used to run the Topology Converter within the vx-simulation directory:
 
-    ```python2 topology_converter.py yh-demo2.dot -c```
+    ```python2 topology_converter.py cumulus-its-symmetric.dot -c```
 
     After the above command is executed, the following configuration changes are necessary:
 

@@ -1,7 +1,7 @@
 # Created by Topology-Converter v4.6.8
 #    Template Revision: v4.6.8
 #    https://github.com/cumulusnetworks/topology_converter
-#    using topology data from: yh-demo2.dot
+#    using topology data from: cumulus-its-symmetric.dot
 
 
 
@@ -30,7 +30,9 @@ spine01 ansible_host=192.168.200.3
 
 [host]
 server01 ansible_host=192.168.200.11
+server03 ansible_host=192.168.200.13
 server02 ansible_host=192.168.200.12
+server04 ansible_host=192.168.200.14
 
 
 [all:vars]

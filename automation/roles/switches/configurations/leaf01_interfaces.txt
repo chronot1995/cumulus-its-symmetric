@@ -11,6 +11,14 @@ iface swp10
     bridge-access 11
     post-up ip link set swp10 promisc on
 
+auto L3VNI_BLUE
+iface L3VNI_BLUE
+    bridge-access 4002
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    vxlan-id 104002
+    vxlan-local-tunnelip 10.1.1.1
+
 auto L3VNI_RED
 iface L3VNI_RED
     bridge-access 4001

@@ -13,6 +13,8 @@ fw01 ansible_host=192.168.200.5
 [servers]
 server01 ansible_host=192.168.200.11
 server02 ansible_host=192.168.200.12
+server03 ansible_host=192.168.200.13
+server04 ansible_host=192.168.200.14
 
 [all:vars]
 ansible_user=cumulus

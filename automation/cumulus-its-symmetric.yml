@@ -1,5 +1,5 @@
 #####
-# Host config for int-ansible-training-small-dc-2servers
+# Host config for cumulus-its-symmetric
 #####
 
 - hosts: switches
