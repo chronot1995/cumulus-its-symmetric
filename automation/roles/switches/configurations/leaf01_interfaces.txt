@@ -61,17 +61,33 @@ iface mgmt
 auto vlan11
 iface vlan11
     address 192.168.11.11/24
-    address-virtual 44:39:39:ff:00:13 192.168.11.1/24
+    address-virtual 44:39:39:ff:11:13 192.168.11.1/24
     vlan-id 11
     vlan-raw-device bridge
     vrf RED
 
+auto vlan22
+iface vlan22
+    address 192.168.22.22/24
+    address-virtual 44:39:39:ff:21:13 192.168.22.1/24
+    vlan-id 22
+    vlan-raw-device bridge
+    vrf BLUE
+
 auto vlan4001
 iface vlan4001
-    hwaddress 44:39:39:FF:11:03
+    hwaddress 44:39:39:FF:01:11
     vlan-id 4001
     vlan-raw-device bridge
     vrf RED
+
+auto vlan4002
+iface vlan4002
+    hwaddress 44:39:39:FF:02:11
+    vlan-id 4002
+    vlan-raw-device bridge
+    vrf BLUE
+
 
 auto vni11
 iface vni11
