@@ -1,0 +1,22 @@
+graph training {
+ "leaf01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.6.2" memory="1024" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.1"]
+ "leaf02" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.6.2" memory="1024" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.2"]
+ "spine01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.6.2" memory="1024" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.3"]
+ "border01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.6.2" memory="1024" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.4"]
+ "fw01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.6.2" memory="1024" config="./helper_scripts/extra_switch_config.sh" mgmt_ip="192.168.200.5"]
+ "server01" [function="host" os="yk0/ubuntu-xenial" memory="768" config="./helper_scripts/extra_server_config.sh" mgmt_ip="192.168.200.11"]
+ "server02" [function="host" os="yk0/ubuntu-xenial" memory="768" config="./helper_scripts/extra_server_config.sh" mgmt_ip="192.168.200.12"]
+ "server03" [function="host" os="yk0/ubuntu-xenial" memory="768" config="./helper_scripts/extra_server_config.sh" mgmt_ip="192.168.200.13"]
+ "server04" [function="host" os="yk0/ubuntu-xenial" memory="768" config="./helper_scripts/extra_server_config.sh" mgmt_ip="192.168.200.14"]
+
+
+ "leaf01":"swp1" -- "spine01":"swp1"
+ "leaf02":"swp1" -- "spine01":"swp2"
+ "spine01":"swp3" -- "border01":"swp3"
+ "border01":"swp1" -- "fw01":"swp1"
+ "server01":"eth1" -- "leaf01":"swp10"
+ "server02":"eth1" -- "leaf01":"swp11"
+ "server03":"eth1" -- "leaf02":"swp10"
+ "server04":"eth1" -- "leaf02":"swp11"
+
+ }
