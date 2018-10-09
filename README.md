@@ -121,13 +121,17 @@ One can also view the VNIs that are established on all of the switches:
 ```
 cumulus@leaf01:mgmt-vrf:~$ net show evpn vni
 VNI        Type VxLAN IF              # MACs   # ARPs   # Remote VTEPs  Tenant VRF
-11         L2   vni11                 1        6        0               RED
+22         L2   vni22                 2        7        1               BLUE
+11         L2   vni11                 2        6        1               RED
 104001     L3   L3VNI_RED             1        1        n/a             RED
+104002     L3   L3VNI_BLUE            2        2        n/a             BLUE
 ```
 ```
 cumulus@leaf02:mgmt-vrf:~$ net show evpn vni
 VNI        Type VxLAN IF              # MACs   # ARPs   # Remote VTEPs  Tenant VRF
-22         L2   vni22                 1        6        0               BLUE
+22         L2   vni22                 2        7        1               BLUE
+11         L2   vni11                 2        7        1               RED
+104001     L3   L3VNI_RED             1        1        n/a             RED
 104002     L3   L3VNI_BLUE            1        1        n/a             BLUE
 ```
 
@@ -171,23 +175,40 @@ Route Distinguisher: 10.222.222.2:3
                     10.4.4.4                               0 65333 65444 i
 *> [5]:[0]:[0]:[32]:[10.5.5.5]
                     10.4.4.4                               0 65333 65444 65555 i
+
+Displayed 8 prefixes (8 paths) (of requested type)
 ```
 
 In the below, server01 is sending pings to server02:
 
 ```
-cumulus@server01:~$ traceroute 192.168.22.222
-traceroute to 192.168.22.222 (192.168.22.222), 30 hops max, 60 byte packets
- 1  192.168.11.11 (192.168.11.11)  1.185 ms  1.131 ms  1.127 ms
- 2  10.111.111.2 (10.111.111.2)  3.804 ms  3.806 ms  3.802 ms
- 3  10.111.111.1 (10.111.111.1)  4.550 ms  4.550 ms  4.547 ms
- 4  10.222.222.2 (10.222.222.2)  5.228 ms  5.231 ms  5.228 ms
- 5  192.168.22.22 (192.168.22.22)  6.609 ms  6.609 ms  6.608 ms
- 6  192.168.22.222 (192.168.22.222)  7.624 ms  8.647 ms  8.611 ms
+cumulus@server01:~$ traceroute 192.168.22.111
+traceroute to 192.168.22.111 (192.168.22.111), 30 hops max, 60 byte packets
+ 1  192.168.11.11 (192.168.11.11)  0.436 ms  0.478 ms  0.661 ms
+ 2  10.111.111.2 (10.111.111.2)  2.816 ms  2.794 ms  2.765 ms
+ 3  10.111.111.1 (10.111.111.1)  3.436 ms  3.405 ms  3.376 ms
+ 4  10.222.222.2 (10.222.222.2)  6.018 ms  5.998 ms  5.971 ms
+ 5  192.168.22.22 (192.168.22.22)  7.258 ms  7.235 ms  7.168 ms
+ 6  192.168.22.111 (192.168.22.111)  7.080 ms  4.863 ms  4.836 ms
 ```
 The above traffic goes through 10.111.111.1, which is fw01. This highlights VRF tenant separation.
 
+```
+cumulus@server01:~$ traceroute 192.168.11.222
+traceroute to 192.168.11.222 (192.168.11.222), 30 hops max, 60 byte packets
+ 1  192.168.11.222 (192.168.11.222)  3.357 ms  3.317 ms  3.274 ms
+```
 
+```
+cumulus@server01:~$ traceroute 192.168.22.222
+traceroute to 192.168.22.222 (192.168.22.222), 30 hops max, 60 byte packets
+ 1  192.168.11.11 (192.168.11.11)  0.594 ms  0.547 ms  0.515 ms
+ 2  10.111.111.2 (10.111.111.2)  7.015 ms  6.994 ms  6.956 ms
+ 3  10.111.111.1 (10.111.111.1)  6.912 ms  6.868 ms  6.739 ms
+ 4  10.222.222.2 (10.222.222.2)  6.680 ms  6.735 ms  6.705 ms
+ 5  192.168.22.22 (192.168.22.22)  9.664 ms  9.635 ms  9.602 ms
+ 6  192.168.22.222 (192.168.22.222)  9.555 ms  4.656 ms  4.627 ms
+```
 
 ### Errata
 
