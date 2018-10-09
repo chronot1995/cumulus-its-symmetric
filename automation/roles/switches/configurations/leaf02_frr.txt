@@ -7,6 +7,10 @@ service integrated-vtysh-config
 !
 log syslog informational
 !
+vrf RED
+ vni 104001
+ exit-vrf
+!
 vrf BLUE
  vni 104002
  exit-vrf

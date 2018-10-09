@@ -32,10 +32,18 @@ iface L3VNI_BLUE
     vxlan-id 104002
     vxlan-local-tunnelip 10.2.2.2
 
+auto L3VNI_RED
+iface L3VNI_RED
+    bridge-access 4001
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    vxlan-id 104001
+    vxlan-local-tunnelip 10.2.2.2
+
 auto bridge
 iface bridge
-    bridge-ports L3VNI_BLUE swp10 vni22
-    bridge-vids 22 4002
+    bridge-ports L3VNI_RED L3VNI_BLUE swp10 swp11 vni11 vni22
+    bridge-vids 11 22 4001 4002
     bridge-vlan-aware yes
 
 auto vagrant
@@ -64,6 +72,15 @@ iface vlan4002
     vlan-id 4002
     vlan-raw-device bridge
     vrf BLUE
+
+auto vni11
+iface vni11
+    bridge-access 11
+    bridge-learning off
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    vxlan-id 11
+    vxlan-local-tunnelip 10.2.2.2
 
 auto vni22
 iface vni22

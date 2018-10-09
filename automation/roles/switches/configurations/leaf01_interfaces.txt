@@ -11,6 +11,11 @@ iface swp10
     bridge-access 11
     post-up ip link set swp10 promisc on
 
+auto swp11
+iface swp11
+    bridge-access 22
+    post-up ip link set swp11 promisc on
+
 auto L3VNI_BLUE
 iface L3VNI_BLUE
     bridge-access 4002
@@ -27,14 +32,18 @@ iface L3VNI_RED
     vxlan-id 104001
     vxlan-local-tunnelip 10.1.1.1
 
+auto BLUE
+iface BLUE
+    vrf-table auto
+
 auto RED
 iface RED
     vrf-table auto
 
 auto bridge
 iface bridge
-    bridge-ports L3VNI_RED swp10 vni11
-    bridge-vids 11 4001
+    bridge-ports L3VNI_RED L3VNI_BLUE swp10 swp11 vni11 vni22
+    bridge-vids 11 22 4001 4002
     bridge-vlan-aware yes
 
 auto vagrant
@@ -71,4 +80,13 @@ iface vni11
     mstpctl-bpduguard yes
     mstpctl-portbpdufilter yes
     vxlan-id 11
+    vxlan-local-tunnelip 10.1.1.1
+
+auto vni22
+iface vni22
+    bridge-access 22
+    bridge-learning off
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    vxlan-id 22
     vxlan-local-tunnelip 10.1.1.1
