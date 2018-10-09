@@ -32,6 +32,10 @@
     timeout: 300
   ignore_errors: true
 
+- name: Sleep for servers to reinitialize
+  pause:
+    seconds: 30
+
 - name: Install traceroute
   apt:
     name: traceroute
