@@ -1,0 +1,27 @@
+auto lo
+iface lo inet loopback
+   address 10.3.3.3/32
+
+auto eth0
+iface eth0 inet dhcp
+ vrf mgmt
+
+auto vagrant
+iface vagrant inet dhcp
+
+auto mgmt
+iface mgmt
+  address 127.0.0.1/8
+  vrf-table auto
+
+auto swp1
+iface swp1
+   mtu 9216
+
+auto swp2
+iface swp2
+   mtu 9216
+
+auto swp3
+iface swp3
+   mtu 9216

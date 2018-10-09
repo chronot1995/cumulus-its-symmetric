@@ -1,0 +1,13 @@
+- name: Fix Server to Server Pings
+  hosts: fw01
+  become: yes
+  gather_facts: yes
+  tasks:
+
+  - name: Remove FW ACLs
+    nclu:
+        commit: true
+        description: "Fix Server Pings"
+        commands:
+           - del vlan 111 acl ipv4 ServerToServerBlock inbound
+           - del vlan 222 acl ipv4 ServerToServerBlock inbound

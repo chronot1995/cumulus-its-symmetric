@@ -1,0 +1,66 @@
+auto lo
+iface lo inet loopback
+    address 10.1.1.1/32
+
+auto swp1
+iface swp1
+    mtu 9216
+
+auto swp10
+iface swp10
+    bridge-access 11
+    post-up ip link set swp10 promisc on
+
+auto L3VNI_RED
+iface L3VNI_RED
+    bridge-access 4001
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    vxlan-id 104001
+    vxlan-local-tunnelip 10.1.1.1
+
+auto RED
+iface RED
+    vrf-table auto
+
+auto bridge
+iface bridge
+    bridge-ports L3VNI_RED swp10 vni11
+    bridge-vids 11 4001
+    bridge-vlan-aware yes
+
+auto vagrant
+iface vagrant inet dhcp
+
+auto eth0
+iface eth0 inet dhcp
+    vrf mgmt
+
+auto mgmt
+iface mgmt
+    address 127.0.0.1/8
+    vrf-table auto
+
+auto vlan11
+iface vlan11
+    address 192.168.11.11/24
+    address-virtual 44:39:39:ff:00:13 192.168.11.1/24
+    vlan-id 11
+    vlan-raw-device bridge
+    vrf RED
+
+auto vlan4001
+iface vlan4001
+    hwaddress 44:39:39:FF:11:03
+    vlan-id 4001
+    vlan-raw-device bridge
+    vrf RED
+
+auto vni11
+iface vni11
+    bridge-access 11
+    bridge-learning off
+    mstpctl-bpduguard yes
+    mstpctl-portbpdufilter yes
+    vxlan-id 11
+    vxlan-local-tunnelip 10.1.1.1

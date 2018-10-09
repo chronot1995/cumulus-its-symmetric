@@ -1,0 +1,29 @@
+frr version 4.0+cl3u3
+frr defaults datacenter
+hostname fw01
+username cumulus nopassword
+!
+service integrated-vtysh-config
+!
+log syslog informational
+!
+interface swp1
+ ipv6 nd ra-interval 10
+ no ipv6 nd suppress-ra
+!
+router bgp 65555
+ bgp router-id 10.5.5.5
+ bgp bestpath as-path multipath-relax
+ neighbor 10.100.100.2 remote-as external
+ neighbor 10.111.111.2 remote-as external
+ neighbor 10.222.222.2 remote-as external
+ !
+ address-family ipv4 unicast
+  network 10.5.5.5/32
+  network 10.100.100.0/24
+  neighbor 10.111.111.2 default-originate
+  neighbor 10.222.222.2 default-originate
+ exit-address-family
+!
+line vty
+!

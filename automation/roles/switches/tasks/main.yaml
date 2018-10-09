@@ -1,0 +1,21 @@
+---
+- name: Copy FRR daemons file
+  copy:
+    src: daemons
+    dest: /etc/frr/daemons
+    backup: yes
+  notify: restart frr
+
+- name: Copy interfaces configuration
+  copy:
+    src: configurations/{{inventory_hostname}}_interfaces.txt
+    dest: /etc/network/interfaces
+    backup: yes
+  notify: reload networking
+
+- name: Copy FRR configuration
+  copy:
+    src: configurations/{{inventory_hostname}}_frr.txt
+    dest: /etc/frr/frr.conf
+    backup: yes
+  notify: reload frr

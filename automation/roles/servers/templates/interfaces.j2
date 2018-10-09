@@ -1,0 +1,20 @@
+#########
+## Configured by Ansible
+#########
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+  address {{node[inventory_hostname]["ports"]["eth1"]["ip"]}}
+  ### STATIC ROUTING ###
+  post-up route add -net 10.0.0.0 netmask 255.0.0.0 gw {{node[inventory_hostname]["ports"]["eth1"]["gw"]}}
+  post-up route add -net 192.168.0.0 netmask 255.255.0.0 gw {{node[inventory_hostname]["ports"]["eth1"]["gw"]}}
+  pre-down route del -net 10.0.0.0 netmask 255.0.0.0 gw {{node[inventory_hostname]["ports"]["eth1"]["gw"]}}
+  pre-down route del -net 192.168.0.0 netmask 255.255.0.0 gw {{node[inventory_hostname]["ports"]["eth1"]["gw"]}}
+
+source /etc/network/interfaces.d/*.cfg

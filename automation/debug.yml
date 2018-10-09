@@ -1,0 +1,17 @@
+- name: Simple Debug Script
+  hosts: switch01
+  gather_facts: yes
+
+  tasks:
+   - debug:
+       msg: "{{ node[inventory_hostname] }}"
+
+   - debug:
+       msg: "{{ node[inventory_hostname].switching.swp10 }}"
+
+#   - debug:
+#       msg: "{{ node[inventory_hostname].routing.lo | regex_replace('/32')}}"
+
+#   - debug:
+#       msg: "add interface {{ item }} ospf network point-to-point"
+#     with_items: "{{ node[inventory_hostname].routing.ospf.neighbors }}"

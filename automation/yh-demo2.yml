@@ -1,0 +1,13 @@
+#####
+# Host config for int-ansible-training-small-dc-2servers
+#####
+
+- hosts: switches
+  become: true
+  roles:
+  - switches
+
+- hosts: servers
+  become: true
+  roles:
+  - servers

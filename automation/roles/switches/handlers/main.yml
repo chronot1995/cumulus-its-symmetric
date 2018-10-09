@@ -1,0 +1,13 @@
+---
+- name: reload networking
+  command: "ifreload -a"
+
+- name: restart frr
+  service:
+    name: frr
+    state: restarted
+
+- name: reload frr
+  service:
+    name: frr
+    state: reloaded

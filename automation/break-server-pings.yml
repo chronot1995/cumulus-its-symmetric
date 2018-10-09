@@ -1,0 +1,14 @@
+- name: Block Server to Server Pings
+  hosts: fw01
+  become: yes
+  gather_facts: yes
+  tasks:
+
+  - name: Add FW ACLs
+    nclu:
+        commit: true
+        description: "Break Server Pings"
+        commands:
+           - add acl ipv4 ServerToServerBlock priority 10 drop icmp
+           - add vlan 111 acl ipv4 ServerToServerBlock inbound
+           - add vlan 222 acl ipv4 ServerToServerBlock inbound
