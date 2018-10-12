@@ -51,7 +51,17 @@ First, make sure that the following is currently running on your machine:
 
     ```./provision.sh```
 
-This will bring run the automation script and configure the two switches with BGP.
+This will run the automation script and configure the environment.
+
+5. Optional: Run the following playbook in the automation directory if you'd like to simulate a firewall on fw01:
+
+    ```ansible-playbook break-server-ping.yml```
+
+This will put an ICMP block on the fw01 interfaces that connect to border01. You will be able to ping within the same VRF, as it doesn't go through the firewall, but you won't be able to ping between VRFs. You still will be able to SSH between VRFs, as a further test.
+
+To disable the ICMP block, simply run the following:
+
+    ```ansible-playbook fix-server-pings.yml```
 
 ### Troubleshooting
 
