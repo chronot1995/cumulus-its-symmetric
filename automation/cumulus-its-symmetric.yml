@@ -11,3 +11,4 @@
   become: true
   roles:
   - servers
+  - serverExtras

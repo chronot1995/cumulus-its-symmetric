@@ -1,0 +1,14 @@
+---
+
+- name: Sleep for servers to reinitialize
+  pause:
+    seconds: 60
+
+- name: Install traceroute
+  apt:
+    name: traceroute
+    update_cache: yes
+
+- name: Test reachability to fw01 using default vrf
+  command: ping 10.5.5.5 -c 5
+  ignore_errors: true
