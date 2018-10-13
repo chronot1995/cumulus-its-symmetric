@@ -62,7 +62,7 @@ This will put an ICMP block on the fw01 interfaces that connect to border01. You
 To disable the ICMP block, simply run the following:
 
     ```ansible-playbook fix-server-pings.yml```
-    
+
 ### Troubleshooting
 
 Helpful VRF-enabled NCLU troubleshooting commands:
@@ -265,7 +265,8 @@ apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
 sudo pip install pip --upgrade
 sudo pip install setuptools --upgrade
 sudo pip install ansible==$ansible_version --upgrade
-}```
+}
+```
 
 Add the following ```echo``` right before the end of the file.
 
