@@ -2,7 +2,9 @@
 
 ## UPDATES:
 
-2/12/2019 - Updated to 3.7.3
+2/12/2019:
+ - Updated to Cumulus Linux 3.7.3
+ - Updated Ansible to 2.7.5
 
 ### Summary:
 
