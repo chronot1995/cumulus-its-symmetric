@@ -1,5 +1,9 @@
 ## cumulus-its-symmetric
 
+## UPDATES:
+
+2/12/2019 - Updated to 3.7.3
+
 ### Summary:
 
 This is an Ansible demo which configures client isolation using VRF and VXLAN to accomplish microsegmentation and multitenancy.
