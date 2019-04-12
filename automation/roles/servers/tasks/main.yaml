@@ -2,7 +2,7 @@
 
 - name: Waiting for route convergence
   pause:
-    seconds: 30
+    seconds: 15
 
 - name: Copy interfaces configuration
   template:
@@ -10,28 +10,6 @@
     dest: /etc/network/interfaces
     backup: yes
 
-- name: Sleep for server to disconnect
-  pause:
-    seconds: 5
-
-## - name: Bring up eth1
-##  shell: ifdown eth1 && ifup eth1
-
 - name: reboot
-  command: /sbin/shutdown -r +1
-  async: 0
-  poll: 0
-  ignore_errors: true
-
-- name: Sleep for server to disconnect
-  pause:
-    seconds: 10
-
-- name: Wait for hosts to be up
-  wait_for:
-    host: "{{ inventory_hostname }}"
-    port: 22
-    state: started
-    delay: 30
-    timeout: 300
-  ignore_errors: true
+  reboot:
+    pre_reboot_delay: 60

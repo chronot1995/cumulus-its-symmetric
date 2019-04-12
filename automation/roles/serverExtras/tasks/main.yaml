@@ -2,7 +2,7 @@
 
 - name: Sleep for servers to reinitialize
   pause:
-    seconds: 60
+    seconds: 15
 
 - name: Install traceroute
   apt:

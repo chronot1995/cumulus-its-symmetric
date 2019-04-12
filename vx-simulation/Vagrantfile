@@ -166,7 +166,7 @@ end
     device.vm.hostname = "oob-mgmt-switch"
 
     device.vm.box = "CumulusCommunity/cumulus-vx"
-    device.vm.box_version = "3.7.4"
+    device.vm.box_version = "3.7.5"
     device.vm.provider "virtualbox" do |v|
       v.name = "#{simid}_oob-mgmt-switch"
       v.customize ["modifyvm", :id, '--audiocontroller', 'AC97', '--audio', 'Null']
@@ -306,7 +306,7 @@ end
     device.vm.hostname = "border01"
 
     device.vm.box = "CumulusCommunity/cumulus-vx"
-    device.vm.box_version = "3.7.4"
+    device.vm.box_version = "3.7.5"
     device.vm.provider "virtualbox" do |v|
       v.name = "#{simid}_border01"
       v.customize ["modifyvm", :id, '--audiocontroller', 'AC97', '--audio', 'Null']
@@ -388,7 +388,7 @@ end
     device.vm.hostname = "leaf02"
 
     device.vm.box = "CumulusCommunity/cumulus-vx"
-    device.vm.box_version = "3.7.4"
+    device.vm.box_version = "3.7.5"
     device.vm.provider "virtualbox" do |v|
       v.name = "#{simid}_leaf02"
       v.customize ["modifyvm", :id, '--audiocontroller', 'AC97', '--audio', 'Null']
@@ -478,7 +478,7 @@ end
     device.vm.hostname = "leaf01"
 
     device.vm.box = "CumulusCommunity/cumulus-vx"
-    device.vm.box_version = "3.7.4"
+    device.vm.box_version = "3.7.5"
     device.vm.provider "virtualbox" do |v|
       v.name = "#{simid}_leaf01"
       v.customize ["modifyvm", :id, '--audiocontroller', 'AC97', '--audio', 'Null']
@@ -568,7 +568,7 @@ end
     device.vm.hostname = "fw01"
 
     device.vm.box = "CumulusCommunity/cumulus-vx"
-    device.vm.box_version = "3.7.4"
+    device.vm.box_version = "3.7.5"
     device.vm.provider "virtualbox" do |v|
       v.name = "#{simid}_fw01"
       v.customize ["modifyvm", :id, '--audiocontroller', 'AC97', '--audio', 'Null']
@@ -642,7 +642,7 @@ end
     device.vm.hostname = "spine01"
 
     device.vm.box = "CumulusCommunity/cumulus-vx"
-    device.vm.box_version = "3.7.4"
+    device.vm.box_version = "3.7.5"
     device.vm.provider "virtualbox" do |v|
       v.name = "#{simid}_spine01"
       v.customize ["modifyvm", :id, '--audiocontroller', 'AC97', '--audio', 'Null']
