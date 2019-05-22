@@ -214,6 +214,9 @@ echo "### Adding .bash_profile to auto login as cumulus user"
 echo "sudo su - cumulus" >> /home/vagrant/.bash_profile
 echo "exit" >> /home/vagrant/.bash_profile
 
+echo "### Adding .ssh_config to avoid HostKeyChecking"
+printf "Host * \n\t StrictHostKeyChecking no\n" >> /home/cumulus/.ssh/config
+
 echo "############################################"
 echo "      DONE!"
 echo "############################################"
