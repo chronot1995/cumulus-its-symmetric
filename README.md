@@ -2,6 +2,8 @@
 
 ## UPDATES:
 
+05/21/2019 - Tested with Cumulus Linux 3.7.6
+
 2/12/2019:
  - Updated to Cumulus Linux 3.7.3
  - Updated Ansible to 2.7.5
