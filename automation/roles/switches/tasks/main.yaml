@@ -26,3 +26,6 @@
     dest: /etc/frr/frr.conf
     backup: yes
   notify: reload frr
+
+- name: Flush Handlers, best practice
+  meta: flush_handlers
