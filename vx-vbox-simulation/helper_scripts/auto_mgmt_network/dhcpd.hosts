@@ -1,0 +1,36 @@
+# /etc/dhcp/dhcpd.hosts
+# Created by Topology-Converter v4.7.0
+#    Template Revision: v4.7.0
+#    https://github.com/cumulusnetworks/topology_converter
+#    using topology data from: cumulus-its-symmetric.dot
+
+group {
+
+  option domain-name-servers 192.168.200.254;
+  option domain-name "simulation";
+  #option routers 192.168.200.254;
+  option www-server 192.168.200.254;
+  option default-url = "http://192.168.200.254/onie-installer";
+
+
+host oob-mgmt-switch {hardware ethernet 44:38:39:00:00:25; fixed-address 192.168.200.6; option host-name "oob-mgmt-switch"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+
+host leaf01 {hardware ethernet 44:38:39:00:00:14; fixed-address 192.168.200.1; option host-name "leaf01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+
+host leaf02 {hardware ethernet 44:38:39:00:00:16; fixed-address 192.168.200.2; option host-name "leaf02"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+
+host spine01 {hardware ethernet 44:38:39:00:00:18; fixed-address 192.168.200.3; option host-name "spine01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+
+host border01 {hardware ethernet 44:38:39:00:00:1a; fixed-address 192.168.200.4; option host-name "border01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+
+host fw01 {hardware ethernet 44:38:39:00:00:1c; fixed-address 192.168.200.5; option host-name "fw01"; option cumulus-provision-url "http://192.168.200.254/ztp_oob.sh";  } 
+
+host server01 {hardware ethernet 44:38:39:00:00:1e; fixed-address 192.168.200.11; option host-name "server01"; } 
+
+host server02 {hardware ethernet 44:38:39:00:00:20; fixed-address 192.168.200.12; option host-name "server02"; } 
+
+host server03 {hardware ethernet 44:38:39:00:00:22; fixed-address 192.168.200.13; option host-name "server03"; } 
+
+host server04 {hardware ethernet 44:38:39:00:00:24; fixed-address 192.168.200.14; option host-name "server04"; } 
+}#End of static host group
+
