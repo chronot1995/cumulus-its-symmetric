@@ -297,8 +297,8 @@ traceroute to 192.168.22.222 (192.168.22.222), 30 hops max, 60 byte packets
 3. The following command was used to run the Topology Converter within the appropriate vx-sim directory:
 
 ```
-     ./topology_converter.py cumulus-segment-routing.dot -c --provider=virtualbox
-     ./topology_converter.py cumulus-segment-routing.dot -c --provider=libvirt
+     ./topology_converter.py cumulus-its-symmetric.dot -c --provider=virtualbox
+     ./topology_converter.py cumulus-its-symmetric.dot -c --provider=libvirt
 ```
 
 After the above command is executed, the following configuration changes are necessary:
