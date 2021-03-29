@@ -1,5 +1,10 @@
 ## cumulus-its-symmetric
 
+### This repo has been deprecated. Please check out the following Nvidia repos:
+```
+https://gitlab.com/cumulus-consulting/goldenturtle/cumulus_ansible_modules
+https://gitlab.com/cumulus-consulting/goldenturtle/cumulus_ansible_modules/-/tree/master/inventories/evpn_symmetric
+```
 ### Summary:
 
   - Cumulus Linux 3.7.9
