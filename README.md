@@ -1,5 +1,7 @@
 ## cumulus-its-symmetric
 
+### DEPRECATED - Please check out Nvidia Air at https://air.nvidia.com for up-to-date examples
+
 ### This repo has been deprecated. Please check out the following Nvidia repos:
 ```
 https://gitlab.com/cumulus-consulting/goldenturtle/cumulus_ansible_modules
